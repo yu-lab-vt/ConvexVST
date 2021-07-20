@@ -9,7 +9,7 @@ ConvexVST support **Matlab** only currently (Old versions before R2018b are not 
 * demo.m --------------- A simple version of ConvexVST. The code is short and easy to understand, but the function is also limited.
 * ConvexVST.m --------- A formal version of ConvexVST. It support more functions, such as changeable weights. It also support Mosek solver acceleration (9.0 or later). Mosek is a commercial optimization solver but free for academic use. View [https://www.mosek.com/](https://www.mosek.com/) for more information.
 * pdf.mat --------------- A family of Poisson-Gaussian distributions for demo.
-* HistogramCount.m An algorithm using truncated Gaussian fitting to estimate noise distributions from 3D/4D image data. It's not a part of ConvexVST but may be helpful to large-volume image data stabilization. See [http://proceedings.mlr.press/v139/wang21p.html](http://proceedings.mlr.press/v139/wang21p.html) Supplementary Section 6 for more details.
+* HistogramCount.m --- An algorithm using truncated Gaussian fitting to estimate noise distributions from 3D/4D image data. It's not a part of ConvexVST but may be helpful to large-volume image data stabilization. See [http://proceedings.mlr.press/v139/wang21p.html](http://proceedings.mlr.press/v139/wang21p.html) Supplementary Section 6 for more details.
 * experiment ----------- The code of experiments in the paper.
 
 
