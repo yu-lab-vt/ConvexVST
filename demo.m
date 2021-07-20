@@ -11,7 +11,7 @@ clc;clear;close all;
 %              number of bins. 
 
 % ----- Output -----
-% stabFunction:Transform function. (1 x M)
+% stabFunction:Transform function. (1 x N)
 % variance:    Stabilized variance after transform. (1 x M-2)(without ends)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -31,6 +31,11 @@ A = pdf;
 A = A(2:255,:);               % Remove end points to keep the best performance.
 [numFun, numBin] = size(A);
 numVar = numBin - 1;
+
+% Uncomment to use ConvexVST
+% parameters.histCenters = 1:254;
+% parameters.binCenters = 0:255;
+% [a,b] = ConvexVST(A, parameters, path);
 
 % Phase 1: minimize maximum variance
 x0 = ones(1,numVar);
