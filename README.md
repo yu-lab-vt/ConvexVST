@@ -3,11 +3,21 @@ ConvexVST (A **Convex** Optimization Approach to **V**ariance-**S**tabilizing **
 
 If you have any feedback or issue, you are welcome to either post them or send email to yug@vt.edu or mengfanw@vt.edu (Guoqiang Yu and Mengfan Wang at Virginia Tech).
 
+## Quick Start
+ConvexVST support **Matlab** only currently (Old versions before R2018b are not tested). The repertory contains:
+
+* demo.m --------- A simple version of ConvexVST. The code is short and easy to understand, but the function is also limited.
+* ConvexVST.m ---- A formal version of ConvexVST. It support more functions, such as changeable weights. It also support Mosek solver acceleration (9.0 or later). Mosek is a commercial optimization solver but free for academic use. View [https://www.mosek.com/](https://www.mosek.com/) for more information.
+* pdf.mat -------- A family of Poisson-Gaussian distributions for demo.
+* HistogramCount.m An algorithm using truncated Gaussian fitting to estimate noise distributions from 3D/4D image data. It's not a part of ConvexVST but may be helpful to large-volume image data stabilization. See [http://proceedings.mlr.press/v139/wang21p.html](http://proceedings.mlr.press/v139/wang21p.html) Supplementary Section 6 for more details.
+* experiment ----- The code of experiments in the paper.
+
+
 ## Algorithm Demonstration
 ### Variance-Stabilizing Transformation
-##### Definition
+#### Definition
 VST problem is to transform heteroscedastic distributions to homoscedastic. That is, we want to find a transform function 𝑓 so that ![](http://latex.codecogs.com/svg.latex?Var[f(X_\theta)]) is constant.
-##### Application
+#### Application
 * Keep the family of noise distributions invariant to the signal.
 * Make data more tractable for subsequent analysis. 
 ##### Peer Method Limitation
@@ -34,7 +44,7 @@ VST problem is to transform heteroscedastic distributions to homoscedastic. That
 
 * As a substitution, we turn to minimize the maximum variance of all random variables.
 
-##### Intuition   
+#### Intuition   
 * ①Variances are positively-correlated to the Δ𝒙. To minimize the max variance, related Δ𝑥 must decrease.
 * ②The sum of Δ𝑥 should be constant (otherwise distributions are rescaled), so that other Δ𝑥  must increase to keep the balance.
 * ③As a result, small variances up and max variances down, they are more closed to each other, and the total cost 𝐶_𝑓 also decreases.
@@ -43,7 +53,7 @@ VST problem is to transform heteroscedastic distributions to homoscedastic. That
 </p>
 
 ## Performance Comparison
-##### Stabilization Performance 
+#### Stabilization Performance 
 * We compared our approach to two different peer methods on both synthetic and real data.
 * The following table shows quantitative results based on two metrics on the public Fluorescence Microscopy Denoising (FMD) dataset, and the figure shows the corresponding stabilized variance curves.
 <p align="center">
@@ -53,7 +63,7 @@ VST problem is to transform heteroscedastic distributions to homoscedastic. That
   <img height="450" src="img/exp2.png">
 </p>
 
-##### Denoising performance
+#### Denoising performance
 * A typical application of VST is denoising, where VST can keep the noise at the same level so that the denoising algorithm can simply assume the noise follows the Gaussian distribution.
 
 * The original images are stabilized by different VST methods, and then denoised by BM3D algorithm.
@@ -67,6 +77,20 @@ VST problem is to transform heteroscedastic distributions to homoscedastic. That
   <img height="250" src="img/visiualComparision.png">
 </p>
 
+# Cite
+## Please cite our paper if you find the code useful for your research.
+Mengfan Wang, Boyu Lyu, Guoqiang Yu, [ConvexVST: A Convex Optimization Approach to Variance-stabilizing Transformation](http://proceedings.mlr.press/v139/wang21p.html), ICML 2021
+```
+@inproceedings{wang2021convexvst,
+  title={ConvexVST: A Convex Optimization Approach to Variance-stabilizing Transformation},
+  author={Wang, Mengfan and Lyu, Boyu and Yu, Guoqiang},
+  booktitle={International Conference on Machine Learning},
+  pages={10839--10848},
+  year={2021},
+  organization={PMLR}
+}
+
+```
 
 
 
