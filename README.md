@@ -20,7 +20,7 @@ VST problem is to transform heteroscedastic distributions to homoscedastic. That
 #### Application
 * Keep the family of noise distributions invariant to the signal.
 * Make data more tractable for subsequent analysis. 
-##### Peer Method Limitation
+#### Peer Method Limitation
 * Simple parametric transformation functions cannot match well with the real data.
 * More complicated models are hard to be analytically solved. 
 <p align="center">
